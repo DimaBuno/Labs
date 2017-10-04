@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+void main ( ){
+  int a[4], i;
+  int *f = a;
+  
+for (int i = 0; i<4; i++) 
+  {
+    scanf("%d", &a[i]); 
+  }
+
+  for (i=0;i<4;i+=2){
+    int b = a[0+i];
+    a[0+i]= a[1+i];
+    a[1+i]=b;
+  }
+
+  for (i = 0; i < 4; i++)
+    {
+    printf(" %d", f[i]);
+  }
+}
