@@ -13,7 +13,7 @@ int main(void) {
  }
  
  for (int i=0;i<s;i++){
-   printf("Новий рядок");
+   printf("Новий рядок \n");
    for (int j = 0; j<s;j++){
      scanf("%d",&matrica[i][j]);
    }
@@ -21,8 +21,7 @@ int main(void) {
  
  for (int i=0;i<s;i++){
    for (int j = 0; j<s;j++){
-     if(matrica[i][j]<100){
-       if(matrica[i][j]>9)
+     if(matrica[i][j]<100 && matrica[i][j]>9){
        Count++;
      }
    }
