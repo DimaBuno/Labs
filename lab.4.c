@@ -13,10 +13,10 @@ int main(void) {
  }
  
  for (int i=0;i<s;i++){
+   printf("Новий рядок");
    for (int j = 0; j<s;j++){
      scanf("%d",&matrica[i][j]);
    }
-   printf("Новий рядок");
  }
  
  for (int i=0;i<s;i++){
@@ -28,5 +28,5 @@ int main(void) {
    }
  }
  
- printf("\n Count: %d",Count);
+ printf("\n Кількість двоцифрових чисел : %d",Count);
 }
