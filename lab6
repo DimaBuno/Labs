@@ -1,0 +1,57 @@
+#include "stdafx.h"
+#include <stdlib.h>
+#include "conio.h"
+
+typedef struct Node {
+	int value;
+	struct Node *next;
+} Node;
+
+Node *addNodeAtBegining(Node *head, int v) {
+  Node *newNode =(Node*)malloc(sizeof(Node));
+  newNode->value = v;
+  newNode->next = head;
+  return newNode;
+}
+
+void printList(Node*head) {
+	Node *node = head;
+	while (node != NULL) {
+		printf("%d", node->value);
+		node=node->next;
+		printf("\n");
+	}
+}
+
+void findMaxNode(Node*head) {
+	Node *node = head;
+	Node *maxNode = head;
+	int max=0;
+	while (node != NULL) {
+		if (node->value > max) {
+			max =node->value;
+			maxNode->value = node->value;
+		}
+		node = node->next;
+	}
+	printf("Max value:");
+	printf("%d", maxNode->value);
+}
+
+int main() {
+	Node *head = NULL;
+	int k;
+	int g;
+	printf("Print number of Nodes:");
+	scanf_s("%d", &k);
+	while (k > 0) {
+		printf("Print value of Nodes:");
+		scanf_s("%d", &g);
+		head = addNodeAtBegining(head, g);
+		k--;
+	}
+	printf("Value in list: \n");
+	printList(head);
+    findMaxNode(head);
+    _gettch();
+}
