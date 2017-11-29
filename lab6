@@ -24,19 +24,32 @@ void printList(Node*head) {
 }
 
 void findMaxNode(Node*head) {
+	int v;
 	Node *node = head;
 	Node *maxNode = head;
 	int max=0;
 	while (node != NULL) {
 		if (node->value > max) {
 			max =node->value;
-			maxNode->value = node->value;
+			maxNode = node;
 		}
 		node = node->next;
 	}
 	printf("Max value:");
 	printf("%d", maxNode->value);
+	printf("\n");
+
+	Node *newNode = (Node*)malloc(sizeof(Node));
+	printf("Print value of New Node:");
+	scanf_s("%d",&v);
+	newNode->value = v;
+	newNode->next = maxNode->next;
+	maxNode->next =newNode;
+
+
+
 }
+
 
 int main() {
 	Node *head = NULL;
@@ -45,7 +58,7 @@ int main() {
 	printf("Print number of Nodes:");
 	scanf_s("%d", &k);
 	while (k > 0) {
-		printf("Print value of Nodes:");
+		printf("Print value of Node:");
 		scanf_s("%d", &g);
 		head = addNodeAtBegining(head, g);
 		k--;
@@ -53,5 +66,7 @@ int main() {
 	printf("Value in list: \n");
 	printList(head);
     findMaxNode(head);
-    _gettch();
+    printList(head);
+	_gettch();
+	
 }
