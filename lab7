@@ -6,6 +6,20 @@ typedef struct Node {
 	int value;
 	struct Node *next;
 } Node;
+static void reverse(struct Node** head_ref)
+{
+    struct Node* prev   = NULL;
+    struct Node* current = *head_ref;
+    struct Node* next;
+    while (current != NULL)
+    {
+        next  = current->next;  
+        current->next = prev;   
+        prev = current;
+        current = next;
+    }
+    *head_ref = prev;
+}
 Node *addNodeAtBegining(Node *head, int v) {
   Node *newNode =(Node*)malloc(sizeof(Node));
   newNode->value = v;
@@ -35,7 +49,6 @@ void findMaxNode(Node*head) {
 	printf("Max value:");
 	printf("%d", maxNode->value);
         printf("\n \n" );
-	
 	Node *newNode = (Node*)malloc(sizeof(Node));
 	printf("Print value of New Node:");
 	scanf_s("%d",&v);
@@ -44,6 +57,7 @@ void findMaxNode(Node*head) {
 	maxNode->next =newNode;
 	printf("\n \n");
 }
+
 int main() {
 	Node *head = NULL;
 	int k;
@@ -57,6 +71,7 @@ int main() {
 		k--;
 	}
 	printf("\nValue in list: \n");
+	reverse(&head);
 	printList(head);
     findMaxNode(head);
     printList(head);
