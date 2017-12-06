@@ -6,23 +6,20 @@ typedef struct Node {
 	int value;
 	struct Node *next;
 } Node;
-
 Node *addNodeAtBegining(Node *head, int v) {
   Node *newNode =(Node*)malloc(sizeof(Node));
   newNode->value = v;
   newNode->next = head;
   return newNode;
 }
-
 void printList(Node*head) {
 	Node *node = head;
 	while (node != NULL) {
 		printf("%d", node->value);
 		node=node->next;
-		printf("\n");
+		printf("\n \n");
 	}
 }
-
 void findMaxNode(Node*head) {
 	int v;
 	Node *node = head;
@@ -37,20 +34,16 @@ void findMaxNode(Node*head) {
 	}
 	printf("Max value:");
 	printf("%d", maxNode->value);
-	printf("\n");
-
+        printf("\n \n" );
+	
 	Node *newNode = (Node*)malloc(sizeof(Node));
 	printf("Print value of New Node:");
 	scanf_s("%d",&v);
 	newNode->value = v;
 	newNode->next = maxNode->next;
 	maxNode->next =newNode;
-
-
-
+	printf("\n \n");
 }
-
-
 int main() {
 	Node *head = NULL;
 	int k;
@@ -63,10 +56,9 @@ int main() {
 		head = addNodeAtBegining(head, g);
 		k--;
 	}
-	printf("Value in list: \n");
+	printf("\nValue in list: \n");
 	printList(head);
     findMaxNode(head);
     printList(head);
 	_gettch();
-	
 }
