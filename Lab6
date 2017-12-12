@@ -1,0 +1,23 @@
+#include "stdafx.h"
+#include <stdlib.h>
+
+typedef struct city {
+	char name[20];
+	int population;
+	int square;
+}city;
+
+int main(void) {
+    struct city c[3];
+	int i = 0;
+	FILE * file = fopen("Text.txt", "rt");
+	if (file == NULL)
+	{
+		return 0;
+	}
+	while (fscanf(file, "%s%d%d", c[i].name, &(c[i].population), &(c[i].square)) != EOF) {
+		printf("%s %d %d \n", c[i].name, c[i].population, c[i].square);
+		i++;
+	}
+	_gettch();
+}
